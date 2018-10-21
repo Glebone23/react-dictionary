@@ -19,8 +19,8 @@ module.exports = {
   // Start bundling from the main entry point of the application.
   entry: './src/index.jsx',
   output: {
-    // Generate output into the 'dist' folder.
-    path: path.resolve(__dirname, 'dist'),
+    // Generate output into the 'build' folder.
+    path: path.resolve(__dirname, 'build'),
 
     // Bundled (and probably minified) JavaScript file of the application.
     filename: 'index.js',
@@ -28,7 +28,7 @@ module.exports = {
     // Url under which the application will be osted in production.
     // This is required by Webpack to resolve other files like images, fonts etc.,
     // which will load into the browser separately from index.js or index.html.
-    publicPath: '/',
+    publicPath: './',
   },
   resolve: {
     // Find modules in node_modules or 'src' folders.

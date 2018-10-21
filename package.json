@@ -1,6 +1,6 @@
 {
-  "name": "react-redux-todo",
-  "description": "Todo list with new technoligies for me",
+  "name": "react-dictionary",
+  "description": "Dictionary for learning english",
   "keywords": [
     "javascript",
     "es6"
@@ -11,17 +11,20 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/Glebone23/react-redux-todo.git"
+    "url": "https://github.com/Glebone23/react-dictionary"
   },
   "scripts": {
     "build": "webpack --mode production",
     "start": "npm-run-all --parallel start:app",
     "start:app": "webpack-dev-server --mode development",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "axios": "0.18.0",
     "babel-runtime": "6.26.0",
+    "gh-pages": "^2.0.1",
     "immutable": "3.8.2",
     "json-server": "0.14.0",
     "npm-run-all": "4.1.3",
