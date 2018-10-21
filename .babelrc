@@ -1,0 +1,19 @@
+{
+  "presets": [
+    [
+      "airbnb",
+      {
+        "removePropTypes": true
+      }
+    ],
+    [
+      "env",
+      {
+        "loose": true,
+        "uglify": true,
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": ["transform-runtime"]
+}
