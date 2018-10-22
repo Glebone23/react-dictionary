@@ -1,4 +1,4 @@
 import Login from './Login';
-import ToLearn from './ToLearn';
+import Home from './Home';
 
-export { Login, ToLearn };
+export { Login, Home };
