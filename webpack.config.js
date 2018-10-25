@@ -28,7 +28,7 @@ module.exports = {
     // Url under which the application will be osted in production.
     // This is required by Webpack to resolve other files like images, fonts etc.,
     // which will load into the browser separately from index.js or index.html.
-    publicPath: '/',
+    publicPath: mode === 'production' ? './' : '/',
   },
   resolve: {
     // Find modules in node_modules or 'src' folders.

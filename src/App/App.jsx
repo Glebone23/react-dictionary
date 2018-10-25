@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { HashRouter as Router, Switch } from 'react-router-dom';
 import { ProtectedRoute } from 'components/controls';
 import { Login, Home } from 'components/pages';
 
