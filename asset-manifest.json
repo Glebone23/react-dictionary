@@ -1,4 +1,4 @@
 {
-  "main.js": "/react-dictionary/index.js",
-  "index.html": "/react-dictionary/index.html"
+  "main.js": "./index.js",
+  "index.html": "./index.html"
 }
