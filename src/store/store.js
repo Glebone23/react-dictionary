@@ -2,7 +2,9 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { combineReducers } from 'redux-immutable';
 import { Map } from 'immutable';
 import promiseMiddleware from 'redux-promise-middleware';
-import { userInfo, initialUserInfoState } from 'reducers';
+import {
+  userInfo, initialUserInfoState, themes, initialThemesState,
+} from 'reducers';
 import thunkMiddleware from 'redux-thunk';
 
 /* eslint-disable no-underscore-dangle */
@@ -12,11 +14,13 @@ const enhancer = composeEnhancers(applyMiddleware(thunkMiddleware, promiseMiddle
 
 export const initialStoreState = Map({
   userInfo: initialUserInfoState,
+  themes: initialThemesState,
 });
 
 const store = createStore(
   combineReducers({
     userInfo,
+    themes,
   }),
   initialStoreState,
   enhancer,

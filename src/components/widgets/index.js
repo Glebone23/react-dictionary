@@ -1,3 +1,4 @@
+import Theme from './Theme';
 import ThemesList from './ThemesList';
 
-export default ThemesList;
+export { Theme, ThemesList };

@@ -7,6 +7,7 @@
     "no-debugger": "error",
     "no-alert": "error",
     "no-console": "error",
+    "import/no-cycle": 0,
     "max-len": ["error", { "code": 120, "tabWidth": 2 }],
     "react/display-name": ["error", { "ignoreTranspilerName": true }],
     "react/prefer-stateless-function": "error"

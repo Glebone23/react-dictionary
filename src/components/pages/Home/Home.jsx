@@ -1,5 +1,5 @@
 import React from 'react';
-import ThemesList from 'components/widgets';
+import { ThemesList } from 'components/widgets';
 
 const displayName = 'Home';
 

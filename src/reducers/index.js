@@ -1,3 +1,6 @@
 import userInfo, { initialUserInfoState } from './userInfo';
+import themes, { initialThemesState } from './themes';
 
-export { userInfo, initialUserInfoState };
+export {
+  userInfo, themes, initialUserInfoState, initialThemesState,
+};

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAction } from 'redux-actions';
-// import { getUserInfo } from 'selectors';
 import config from 'config';
 
 const payloadCreator = (body) => {
