@@ -16,7 +16,7 @@ const defaultProps = {
 
 function App({ isLoggedIn }) {
   return (
-    <Router basename="/react-dictionary/">
+    <Router basename="/react-dictionary">
       <Switch>
         <ProtectedRoute exact path="/" isLoggedIn={isLoggedIn} component={Home} />
         <ProtectedRoute exact path="/login" isLoggedIn={isLoggedIn} isPrivate={false} component={Login} />
