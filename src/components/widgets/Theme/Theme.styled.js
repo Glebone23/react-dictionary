@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import config from "config";
+import styled from 'styled-components';
+import config from 'config';
 
 const {
   screens: { mobile },
-  colors: { bgGray, borderGray }
+  colors: { bgGray, borderGray },
 } = config;
 const ThemeCard = styled.div`
   display: flex;

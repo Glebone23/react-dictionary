@@ -8,7 +8,7 @@ const Logo = styled.img`
   width: 60px;
   height: 60px;
   display: block;
-  margin: 2em auto auto;
+  margin: 1.2em auto auto;
 `;
 
 const LoginFormWrapper = styled.div`
