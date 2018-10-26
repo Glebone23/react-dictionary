@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Theme } from 'components/widgets';
+import ThemesWrapper from './ThemesList.styled';
 
 const displayName = 'ThemeList';
 
@@ -15,11 +16,11 @@ const defaultProps = {
 /* eslint-disable no-underscore-dangle */
 function ThemesList({ themes }) {
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <ThemesWrapper>
       {themes.map(theme => (
         <Theme key={theme._id}>{theme.title}</Theme>
       ))}
-    </div>
+    </ThemesWrapper>
   );
 }
 

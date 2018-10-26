@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { InputField, LabelField } from 'components/elements';
 
 const displayName = 'LabelInput';
 
 const propTypes = {
   type: PropTypes.string,
   value: PropTypes.string,
-  style: PropTypes.objectOf(PropTypes.string),
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -15,25 +15,16 @@ const propTypes = {
 const defaultProps = {
   type: 'text',
   value: '',
-  style: {},
 };
 
 function LabelInput({
-  label, name, type, value, onChange, style,
+  label, name, type, value, onChange,
 }) {
   return (
-    <label htmlFor={name}>
-      {label}
-      <br />
-      <input
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        style={{ ...style, width: '100%', border: '1px solid #dcdcdc' }}
-      />
-      <br />
-    </label>
+    <React.Fragment>
+      <LabelField htmlFor={name}>{label}</LabelField>
+      <InputField type={type} name={name} value={value} onChange={onChange} />
+    </React.Fragment>
   );
 }
 

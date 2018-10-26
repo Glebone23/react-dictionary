@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ButtonStyled } from 'components/elements';
 
 const displayName = 'Button';
 
 const propTypes = {
   onClick: PropTypes.func,
-  style: PropTypes.objectOf(PropTypes.string),
   children: PropTypes.string,
   type: PropTypes.string,
   disabled: PropTypes.bool,
@@ -13,20 +13,18 @@ const propTypes = {
 
 const defaultProps = {
   onClick: undefined,
-  style: {},
   children: '',
   type: 'button',
   disabled: false,
 };
 
-/* eslint-disable react/button-has-type */
 function Button({
-  onClick, style, children, type, disabled,
+  onClick, children, type, disabled,
 }) {
   return (
-    <button type={type} onClick={onClick} style={style} disabled={disabled}>
+    <ButtonStyled type={type} onClick={onClick} disabled={disabled}>
       {children}
-    </button>
+    </ButtonStyled>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ThemeCard from './Theme.styled';
 
 const displayName = 'Theme';
 
@@ -12,19 +13,7 @@ const defaultProps = {
 };
 
 function Theme({ children }) {
-  return (
-    <div
-      style={{
-        width: '100%',
-        background: 'black',
-        color: 'white',
-        margin: '0.7em 0',
-        padding: '0.3em',
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <ThemeCard>{children}</ThemeCard>;
 }
 
 Theme.displayName = displayName;

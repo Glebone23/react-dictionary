@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import config from 'config';
 import { LabelInput, Button } from 'components/controls';
+import logo from 'logo.svg';
+import { Logo, LoginFormWrapper, LoginHeadline } from './Login.styled';
 
 const displayName = 'Login';
 
@@ -25,34 +27,17 @@ function Login({
 }) {
   return (
     <React.Fragment>
-      <h2 style={{ textAlign: 'center' }}>
-        {`Login to ${config.name}`}
-      </h2>
-      <div style={{ width: '200px', margin: '0 auto' }}>
-        <form style={{ marginTop: '1em' }} onSubmit={handleLogin}>
-          <LabelInput
-            type="email"
-            label="Email:"
-            name="email"
-            value={email}
-            onChange={changeEmail}
-          />
-          <LabelInput
-            type="password"
-            label="Password:"
-            name="password"
-            value={password}
-            onChange={changePassword}
-          />
-          <Button
-            type="submit"
-            style={{ width: '100%', marginLeft: '1px', marginTop: '1em' }}
-            disabled={isLoading}
-          >
+      <Logo src={logo} alt="logo" />
+      <LoginHeadline>{`Login to ${config.name}`}</LoginHeadline>
+      <LoginFormWrapper>
+        <form onSubmit={handleLogin}>
+          <LabelInput type="email" label="Email address" name="email" value={email} onChange={changeEmail} />
+          <LabelInput type="password" label="Password" name="password" value={password} onChange={changePassword} />
+          <Button type="submit" style={{ width: '100%', marginLeft: '1px', marginTop: '1em' }} disabled={isLoading}>
             {isLoading ? 'Logging in...' : 'Log In'}
           </Button>
         </form>
-      </div>
+      </LoginFormWrapper>
     </React.Fragment>
   );
 }
