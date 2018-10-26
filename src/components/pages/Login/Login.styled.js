@@ -12,7 +12,7 @@ const Logo = styled.img`
 `;
 
 const LoginFormWrapper = styled.div`
-  width: 310px;
+  width: 260px;
   margin: 1.5em auto 0;
   background: ${bgGray};
   padding: 1.3em;
@@ -23,6 +23,7 @@ const LoginFormWrapper = styled.div`
 const LoginHeadline = styled(Headline)`
   font-size: 1.6em;
   font-weight: 100;
+  text-align: center !important;
 `;
 
 export { Logo, LoginFormWrapper, LoginHeadline };

@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import config from 'config';
+import styled from "styled-components";
+import config from "config";
 
 const {
   screens: { mobile },
-  colors: { bgGray, borderGray },
+  colors: { bgGray, borderGray }
 } = config;
 const ThemeCard = styled.div`
   display: flex;
@@ -23,7 +23,6 @@ const ThemeCard = styled.div`
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   user-select: none;
-  -webkit-tap-highlight-color: transparent;
   &:hover {
     background: linear-gradient(to left top, #b814f6, #de8b2d);
     color: white;
@@ -32,7 +31,8 @@ const ThemeCard = styled.div`
 
   @media (max-width: ${mobile}px) {
     width: 100%;
-    height: 10vh;
+    min-height: 12vh;
+    height: auto;
   }
 `;
 
