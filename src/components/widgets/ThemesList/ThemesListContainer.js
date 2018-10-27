@@ -1,5 +1,5 @@
 import {
-  compose, setDisplayName, lifecycle, mapProps,
+  compose, setDisplayName, lifecycle, mapProps, withState,
 } from 'recompose';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -20,9 +20,16 @@ export const enhance = compose(
       dispatch,
     ),
   ),
+  withState('isLoading', 'setLoading', true),
   lifecycle({
     componentDidMount() {
-      this.props.dispatchFetchThemes();
+      const { dispatchFetchThemes, setLoading } = this.props;
+      dispatchFetchThemes()
+        .then(() => setLoading(false))
+        .catch(() => {
+          // eslint-disable-next-line no-console
+          console.log('Unauthorized or no connection');
+        });
     },
   }),
   mapProps(props => ({
