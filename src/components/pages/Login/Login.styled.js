@@ -4,6 +4,12 @@ import config from 'config';
 
 const { bgGray } = config.colors;
 
+const LoginPageWrapper = styled.div`
+  width: 300px;
+  height: 100%;
+  margin: auto;
+`;
+
 const Logo = styled.img`
   width: 60px;
   height: 60px;
@@ -12,7 +18,8 @@ const Logo = styled.img`
 `;
 
 const LoginFormWrapper = styled.div`
-  width: 260px;
+  box-sizing: border-box;
+  width: 100%;
   margin: 1.5em auto 0;
   background: ${bgGray};
   padding: 1.3em;
@@ -23,7 +30,10 @@ const LoginFormWrapper = styled.div`
 const LoginHeadline = styled(Headline)`
   font-size: 1.6em;
   font-weight: 100;
+  letter-spacing: -0.4px;
   text-align: center !important;
 `;
 
-export { Logo, LoginFormWrapper, LoginHeadline };
+export {
+  LoginPageWrapper, Logo, LoginFormWrapper, LoginHeadline,
+};

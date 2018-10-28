@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import config from 'config';
 import { LabelInput, Button } from 'components/controls';
 import logo from 'logo.svg';
-import { Logo, LoginFormWrapper, LoginHeadline } from './Login.styled';
+import {
+  LoginPageWrapper, Logo, LoginFormWrapper, LoginHeadline,
+} from './Login.styled';
 
 const displayName = 'Login';
 
@@ -26,7 +28,7 @@ function Login({
   email, password, changeEmail, changePassword, handleLogin, isLoading,
 }) {
   return (
-    <React.Fragment>
+    <LoginPageWrapper>
       <Logo src={logo} alt="logo" />
       <LoginHeadline>{`Login to ${config.name}`}</LoginHeadline>
       <LoginFormWrapper>
@@ -38,7 +40,7 @@ function Login({
           </Button>
         </form>
       </LoginFormWrapper>
-    </React.Fragment>
+    </LoginPageWrapper>
   );
 }
 
