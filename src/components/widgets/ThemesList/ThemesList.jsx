@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Loader } from 'components/controls';
+import { Loader, Preloader } from 'components/controls';
 import { Theme } from 'components/widgets';
 import ThemesWrapper from './ThemesList.styled';
 
@@ -19,7 +19,7 @@ const defaultProps = {
 /* eslint-disable no-underscore-dangle */
 function ThemesList({ themes, isLoading }) {
   return (
-    <Loader isLoading={isLoading} delay={500} fallback={<div style={{ textAlign: 'center' }}>Loading...</div>}>
+    <Loader isLoading={isLoading} delay={500} fallback={<Preloader />}>
       <ThemesWrapper>
         {themes.map(theme => (
           <Theme key={theme._id}>{theme.title}</Theme>
