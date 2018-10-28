@@ -90,7 +90,7 @@ module.exports = {
 
     // Host running application on localhost
     // AND make it available externally, i.e. on testing mobile devices in your internal network.
-    // host: '127.0.0.1',
+    host: '0.0.0.0',
 
     // The application will be available on port 1000.
     port: 8000,
