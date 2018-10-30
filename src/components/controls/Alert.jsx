@@ -7,15 +7,17 @@ const displayName = 'Alert';
 const propTypes = {
   children: PropTypes.string,
   type: PropTypes.string,
+  isShown: PropTypes.bool,
 };
 
 const defaultProps = {
   children: '',
-  type: 'success',
+  type: 'error',
+  isShown: true,
 };
 
-function Alert({ children, type }) {
-  return <AlertWrapper type={type}>{children}</AlertWrapper>;
+function Alert({ children, type, isShown }) {
+  return <AlertWrapper type={type} isShown={isShown}>{children}</AlertWrapper>;
 }
 
 Alert.displayName = displayName;
