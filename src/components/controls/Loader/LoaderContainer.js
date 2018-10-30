@@ -4,6 +4,8 @@ import {
 import PropTypes from 'prop-types';
 import Loader from './Loader';
 
+let interval;
+
 const enhance = compose(
   setDisplayName('LoaderContainer'),
   setPropTypes({
@@ -18,13 +20,16 @@ const enhance = compose(
       const { delay, setFallback } = this.props;
       if (delay > 0) {
         const dataStart = Date.now();
-        const interval = setInterval(() => {
+        interval = setInterval(() => {
           if (Date.now() - dataStart >= delay) {
             setFallback(true);
             clearInterval(interval);
           }
         }, 16);
       } else setFallback(true);
+    },
+    componentWillUnmount() {
+      clearInterval(interval);
     },
   }),
 );
