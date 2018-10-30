@@ -24,7 +24,7 @@ const LoginFormWrapper = styled.div`
   background: ${bgGray};
   padding: 1.3em;
   border-radius: 5px;
-  box-shadow: 0 0 30px 0 rgba(204, 204, 204, 0.88);
+  border: 1px solid rgba(170, 170, 170, 0.16);
 `;
 
 const LoginHeadline = styled(Headline)`
