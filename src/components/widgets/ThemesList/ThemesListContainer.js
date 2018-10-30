@@ -3,8 +3,9 @@ import {
 } from 'recompose';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { getThemes } from 'selectors';
-import { fetchThemes } from 'actions';
+import { getThemes, getUserInfo } from 'selectors';
+import { fetchThemes, logoutUser } from 'actions';
+import withError from 'components/HOCs';
 import ThemesList from './ThemesList';
 
 export const enhance = compose(
@@ -12,10 +13,12 @@ export const enhance = compose(
   connect(
     state => ({
       themes: getThemes(state),
+      userInfo: getUserInfo(state),
     }),
     dispatch => bindActionCreators(
       {
         dispatchFetchThemes: fetchThemes,
+        dispatchLogoutUser: logoutUser,
       },
       dispatch,
     ),
@@ -23,12 +26,13 @@ export const enhance = compose(
   withState('isLoading', 'setLoading', true),
   lifecycle({
     componentDidMount() {
-      const { dispatchFetchThemes, setLoading } = this.props;
+      const {
+        dispatchFetchThemes, setLoading, handleError, dispatchLogoutUser,
+      } = this.props;
       dispatchFetchThemes()
         .then(() => setLoading(false))
-        .catch(() => {
-          // eslint-disable-next-line no-console
-          console.log('Unauthorized or no connection');
+        .catch((res) => {
+          if (handleError(res.response).logout) dispatchLogoutUser();
         });
     },
   }),
@@ -38,4 +42,4 @@ export const enhance = compose(
   })),
 );
 
-export default enhance(ThemesList);
+export default withError(enhance(ThemesList));
