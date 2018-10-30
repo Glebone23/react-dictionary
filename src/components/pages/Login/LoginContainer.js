@@ -27,12 +27,21 @@ export const enhance = compose(
   withState('isLoading', 'setLoading', false),
   withState('error', 'setError', ''),
   withHandlers({
-    changeEmail: ({ setEmail, isLoading }) => event => (!isLoading ? setEmail(event.currentTarget.value) : null),
+    changeEmail: ({ setEmail, isLoading }) => event => (
+      !isLoading ? setEmail(event.currentTarget.value) : null
+    ),
     changePassword: ({ setPassword, isLoading }) => event => (
       !isLoading ? setPassword(event.currentTarget.value) : null
     ),
     handleLogin: ({
-      email, password, setLoading, isLoading, dispatchLoginUser, history, setError,
+      email,
+      password,
+      setLoading,
+      isLoading,
+      dispatchLoginUser,
+      history,
+      setError,
+      setPassword,
     }) => (event) => {
       event.preventDefault();
       const errorName = 'Incorrect email or password';
@@ -42,10 +51,14 @@ export const enhance = compose(
           dispatchLoginUser({ email, password })
             .then(() => history.push('/'))
             .catch(() => {
+              setPassword('');
               setError(errorName);
               setLoading(false);
             });
-        } else setError(errorName);
+        } else {
+          setPassword('');
+          setError(errorName);
+        }
       }
     },
   }),
