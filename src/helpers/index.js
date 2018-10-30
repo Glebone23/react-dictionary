@@ -1,3 +1,3 @@
-import validateEmail from './validateEmail';
+import { validateEmail, validatePassword } from './validation';
 
-export default validateEmail;
+export { validateEmail, validatePassword };
