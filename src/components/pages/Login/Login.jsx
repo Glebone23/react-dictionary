@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import config from 'config';
-import { LabelInput, Button } from 'components/controls';
+import { LabelInput, Button, Alert } from 'components/controls';
 import logo from 'logo.svg';
 import {
   LoginPageWrapper, Logo, LoginFormWrapper, LoginHeadline,
@@ -16,21 +16,25 @@ const propTypes = {
   changePassword: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
+  error: PropTypes.string,
 };
 
 const defaultProps = {
   email: '',
   password: '',
   isLoading: false,
+  error: '',
 };
 
 function Login({
-  email, password, changeEmail, changePassword, handleLogin, isLoading,
+  email, password, changeEmail, changePassword, handleLogin, isLoading, error,
 }) {
+  const showError = error !== '';
   return (
     <LoginPageWrapper>
       <Logo src={logo} alt="logo" />
       <LoginHeadline>{`Login to ${config.name}`}</LoginHeadline>
+      <Alert isShown={showError}>{error}</Alert>
       <LoginFormWrapper>
         <form onSubmit={handleLogin}>
           <LabelInput type="email" label="Email address" name="email" value={email} onChange={changeEmail} />
