@@ -4,8 +4,8 @@ import config from 'config';
 import { LabelInput, Button, Alert } from 'components/controls';
 import logo from 'logo.svg';
 import {
-  LoginPageWrapper, Logo, LoginFormWrapper, LoginHeadline,
-} from './Login.styled';
+  AuthPageWrapper, Logo, AuthFormWrapper, AuthHeadline,
+} from 'components/elements';
 
 const displayName = 'Login';
 
@@ -31,11 +31,11 @@ function Login({
 }) {
   const showError = error !== '';
   return (
-    <LoginPageWrapper>
+    <AuthPageWrapper>
       <Logo src={logo} alt="logo" />
-      <LoginHeadline>{`Login to ${config.name}`}</LoginHeadline>
+      <AuthHeadline>{`Login to ${config.name}`}</AuthHeadline>
       <Alert isShown={showError}>{error}</Alert>
-      <LoginFormWrapper>
+      <AuthFormWrapper>
         <form onSubmit={handleLogin}>
           <LabelInput type="email" label="Email address" name="email" value={email} onChange={changeEmail} />
           <LabelInput type="password" label="Password" name="password" value={password} onChange={changePassword} />
@@ -43,8 +43,8 @@ function Login({
             {isLoading ? 'Logging in...' : 'Log In'}
           </Button>
         </form>
-      </LoginFormWrapper>
-    </LoginPageWrapper>
+      </AuthFormWrapper>
+    </AuthPageWrapper>
   );
 }
 
