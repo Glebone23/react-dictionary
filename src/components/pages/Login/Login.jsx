@@ -39,7 +39,7 @@ function Login({
         <form onSubmit={handleLogin}>
           <LabelInput type="email" label="Email address" name="email" value={email} onChange={changeEmail} />
           <LabelInput type="password" label="Password" name="password" value={password} onChange={changePassword} />
-          <Button type="submit" style={{ width: '100%', marginLeft: '1px', marginTop: '1em' }} disabled={isLoading}>
+          <Button type="submit" disabled={isLoading}>
             {isLoading ? 'Logging in...' : 'Log In'}
           </Button>
         </form>
