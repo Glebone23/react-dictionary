@@ -1,17 +1,8 @@
-import axios from 'axios';
 import { createAction } from 'redux-actions';
 import { getUserInfo } from 'selectors';
-import config from 'config';
+import { ThemesModel } from 'models';
 
-const payloadCreator = (token) => {
-  const axiosConfig = {
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-      Authorization: `Bearer ${token}`,
-    },
-  };
-  return axios.get(`${config.serverURL}/themes`, axiosConfig);
-};
+const payloadCreator = token => ThemesModel.get(token);
 
 const fetchThemesAsync = createAction('FETCH_THEMES', payloadCreator);
 

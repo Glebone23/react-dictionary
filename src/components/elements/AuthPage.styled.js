@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Headline } from 'components/elements';
 import config from 'config';
+import { Headline } from './Headlines.styled';
 
 const { bgGray } = config.colors;
 
-const LoginPageWrapper = styled.div`
+const AuthPageWrapper = styled.div`
   width: 300px;
   height: 100%;
   margin: auto;
@@ -17,7 +17,7 @@ const Logo = styled.img`
   margin: 1.2em auto auto;
 `;
 
-const LoginFormWrapper = styled.div`
+const AuthFormWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
   margin: 1.5em auto 0;
@@ -27,13 +27,14 @@ const LoginFormWrapper = styled.div`
   border: 1px solid rgba(170, 170, 170, 0.16);
 `;
 
-const LoginHeadline = styled(Headline)`
+const AuthHeadline = styled(Headline)`
   font-size: 1.6em;
   font-weight: 100;
   letter-spacing: -0.4px;
   text-align: center !important;
+  padding-left: 0;
 `;
 
 export {
-  LoginPageWrapper, Logo, LoginFormWrapper, LoginHeadline,
+  AuthPageWrapper, Logo, AuthFormWrapper, AuthHeadline,
 };

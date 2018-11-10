@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { HashRouter as Router, Switch } from 'react-router-dom';
 import { ProtectedRoute } from 'components/controls';
-import { Login, Home } from 'components/pages';
+import { Login, Signup, Home } from 'components/pages';
 
 const displayName = 'Dictionary';
 
@@ -20,6 +20,7 @@ function App({ isLoggedIn }) {
       <Switch>
         <ProtectedRoute exact path="/" isLoggedIn={isLoggedIn} component={Home} />
         <ProtectedRoute exact path="/login" isLoggedIn={isLoggedIn} isPrivate={false} component={Login} />
+        <ProtectedRoute exact path="/signup" isLoggedIn={isLoggedIn} isPrivate={false} component={Signup} />
       </Switch>
     </Router>
   );

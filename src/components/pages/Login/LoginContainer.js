@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { loginUser } from 'actions';
 import { getUserInfo } from 'selectors';
 import { validateEmail, validatePassword } from 'helpers';
+import config from 'config';
 import Login from './Login';
 
 export const enhance = compose(
@@ -44,7 +45,7 @@ export const enhance = compose(
       setPassword,
     }) => (event) => {
       event.preventDefault();
-      const errorName = 'Incorrect email or password';
+      const errorName = config.errors[401];
       if (!isLoading) {
         if (validateEmail(email) && validatePassword(password)) {
           setLoading(true);

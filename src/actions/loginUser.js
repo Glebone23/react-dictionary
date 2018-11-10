@@ -1,13 +1,7 @@
-import axios from 'axios';
 import { createAction } from 'redux-actions';
-import config from 'config';
+import { UserModel } from 'models';
 
-const payloadCreator = (body) => {
-  const axiosConfig = {
-    headers: { 'Content-type': 'application/json; charset=UTF-8' },
-  };
-  return axios.post(`${config.serverURL}/user/login`, body, axiosConfig);
-};
+const payloadCreator = body => UserModel.login(body);
 
 const loginUserAsync = createAction('LOGIN_USER', payloadCreator);
 
