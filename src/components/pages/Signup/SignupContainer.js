@@ -4,7 +4,6 @@ import {
 import { UserModel } from 'models';
 import { validateEmail, validatePassword, isEmpty } from 'helpers';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { getUserInfo } from 'selectors';
 import { loginUser } from 'actions';
@@ -87,4 +86,4 @@ export const enhance = compose(
   }),
 );
 
-export default withRouter(enhance(Signup));
+export default enhance(Signup);
