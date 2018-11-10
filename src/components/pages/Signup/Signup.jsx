@@ -5,7 +5,10 @@ import logo from 'logo.svg';
 import {
   AuthPageWrapper, Logo, AuthFormWrapper, AuthHeadline,
 } from 'components/elements';
-import { LabelInput, Button, Alert } from 'components/controls';
+import {
+  LabelInput, Button, Alert, Info,
+} from 'components/controls';
+import { Link } from 'react-router-dom';
 
 const displayName = 'Signup';
 
@@ -88,6 +91,11 @@ function Signup({
           </Button>
         </form>
       </AuthFormWrapper>
+      <Info>
+        <span>Already have an account? </span>
+        <Link to="/login">Login</Link>
+        .
+      </Info>
     </AuthPageWrapper>
   );
 }

@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import config from 'config';
-import { LabelInput, Button, Alert } from 'components/controls';
+import {
+  LabelInput, Button, Alert, Info,
+} from 'components/controls';
 import logo from 'logo.svg';
 import {
   AuthPageWrapper, Logo, AuthFormWrapper, AuthHeadline,
 } from 'components/elements';
+import { Link } from 'react-router-dom';
 
 const displayName = 'Login';
 
@@ -44,6 +47,11 @@ function Login({
           </Button>
         </form>
       </AuthFormWrapper>
+      <Info>
+        <span>{`New to ${config.name}? `}</span>
+        <Link to="/signup">Create an account</Link>
+        .
+      </Info>
     </AuthPageWrapper>
   );
 }
