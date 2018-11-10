@@ -4,7 +4,6 @@ import {
 import { UserModel } from 'models';
 import { validateEmail, validatePassword, isEmpty } from 'helpers';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { getUserInfo } from 'selectors';
 import { loginUser } from 'actions';
@@ -51,7 +50,6 @@ export const enhance = compose(
       setError,
       setLoading,
       dispatchLoginUser,
-      history,
     }) => (event) => {
       event.preventDefault();
       setLoading(true);
@@ -73,7 +71,6 @@ export const enhance = compose(
         })
           .then(() => {
             dispatchLoginUser({ email, password })
-              .then(() => history.push('/'))
               .catch(() => setError(config.errors[500]));
           })
           .catch((res) => {
@@ -87,4 +84,4 @@ export const enhance = compose(
   }),
 );
 
-export default withRouter(enhance(Signup));
+export default enhance(Signup);

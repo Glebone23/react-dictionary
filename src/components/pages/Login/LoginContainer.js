@@ -3,7 +3,6 @@ import {
 } from 'recompose';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { loginUser } from 'actions';
 import { getUserInfo } from 'selectors';
 import { validateEmail, validatePassword } from 'helpers';
@@ -40,7 +39,6 @@ export const enhance = compose(
       setLoading,
       isLoading,
       dispatchLoginUser,
-      history,
       setError,
       setPassword,
     }) => (event) => {
@@ -50,7 +48,6 @@ export const enhance = compose(
         if (validateEmail(email) && validatePassword(password)) {
           setLoading(true);
           dispatchLoginUser({ email, password })
-            .then(() => history.push('/'))
             .catch(() => {
               setPassword('');
               setError(errorName);
@@ -65,4 +62,4 @@ export const enhance = compose(
   }),
 );
 
-export default withRouter(enhance(Login));
+export default enhance(Login);
