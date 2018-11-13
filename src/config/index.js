@@ -7,6 +7,7 @@ const config = {
   colors: {
     bgGray: '#fafafa',
     borderGray: '#ababab',
+    themeFont: '#9d9d9d',
     mainDarkFontColor: '#505050',
     accentColor: '#53c1f6',
     mainLightColor: 'white',

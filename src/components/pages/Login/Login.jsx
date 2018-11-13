@@ -50,7 +50,7 @@ function Login({
       <Info>
         <span>{`New to ${config.name}? `}</span>
         <Link to="/signup">Create an account</Link>
-        .
+        {'.'}
       </Info>
     </AuthPageWrapper>
   );

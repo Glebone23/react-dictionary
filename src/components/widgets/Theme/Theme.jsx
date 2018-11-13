@@ -5,15 +5,17 @@ import ThemeCard from './Theme.styled';
 const displayName = 'Theme';
 
 const propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.node,
+  onClick: PropTypes.func,
 };
 
 const defaultProps = {
   children: '',
+  onClick: undefined,
 };
 
-function Theme({ children }) {
-  return <ThemeCard>{children}</ThemeCard>;
+function Theme({ children, onClick }) {
+  return <ThemeCard onClick={onClick}>{children}</ThemeCard>;
 }
 
 Theme.displayName = displayName;

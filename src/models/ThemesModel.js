@@ -10,6 +10,8 @@ const axiosConfig = token => ({
 
 const get = token => axios.get(`${config.serverURL}/themes`, axiosConfig(token));
 
-const ThemesModel = { get };
+const add = (token, body) => axios.post(`${config.serverURL}/themes`, body, axiosConfig(token));
+
+const ThemesModel = { get, add };
 
 export default ThemesModel;

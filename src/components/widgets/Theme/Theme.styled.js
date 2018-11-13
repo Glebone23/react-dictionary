@@ -3,7 +3,7 @@ import config from 'config';
 
 const {
   screens: { mobile },
-  colors: { bgGray, borderGray },
+  colors: { bgGray, borderGray, themeFont },
 } = config;
 const ThemeCard = styled.div`
   display: flex;
@@ -12,10 +12,10 @@ const ThemeCard = styled.div`
   width: 200px;
   height: 250px;
   background: ${bgGray};
-  color: #9d9d9d;
+  color: ${themeFont};
   font-weight: 800;
   font-size: 1.25em;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 3px solid ${borderGray};
   margin: 0 0.2em 0.4em 0.2em;
   cursor: pointer;
@@ -23,6 +23,9 @@ const ThemeCard = styled.div`
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   user-select: none;
+  i {
+    font-size: 33px;
+  }
   &:hover {
     background: linear-gradient(to left top, #b814f6, #de8b2d);
     color: white;
@@ -33,6 +36,9 @@ const ThemeCard = styled.div`
     width: 100%;
     min-height: 12vh;
     height: auto;
+    i {
+      font-size: 28px;
+    }
   }
 `;
 

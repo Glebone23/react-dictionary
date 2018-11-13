@@ -94,7 +94,7 @@ function Signup({
       <Info>
         <span>Already have an account? </span>
         <Link to="/login">Login</Link>
-        .
+        {'.'}
       </Info>
     </AuthPageWrapper>
   );

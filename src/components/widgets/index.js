@@ -1,4 +1,5 @@
 import Theme from './Theme';
 import ThemesList from './ThemesList';
+import AddTheme from './AddTheme';
 
-export { Theme, ThemesList };
+export { Theme, ThemesList, AddTheme };
