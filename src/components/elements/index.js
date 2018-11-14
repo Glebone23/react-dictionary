@@ -3,9 +3,7 @@ import { InputField, LabelField } from './LabelInput.styled';
 import ButtonStyled from './Button.styled';
 import AlertWrapper from './Alert.styled';
 import InfoWrapper from './Info.styled';
-import {
-  BlubWrapper, Blub1, Blub2, Blub3,
-} from './Preloader.styled';
+import BlubWrapper from './Preloader.styled';
 import {
   AuthPageWrapper, Logo, AuthFormWrapper, AuthHeadline,
 } from './AuthPage.styled';
@@ -17,9 +15,6 @@ export {
   LabelField,
   ButtonStyled,
   BlubWrapper,
-  Blub1,
-  Blub2,
-  Blub3,
   AlertWrapper,
   AuthPageWrapper,
   Logo,

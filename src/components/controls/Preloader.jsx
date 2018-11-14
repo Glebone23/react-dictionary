@@ -1,20 +1,29 @@
 import React from 'react';
-import {
-  BlubWrapper, Blub1, Blub2, Blub3,
-} from 'components/elements';
+import PropTypes from 'prop-types';
+import { BlubWrapper } from 'components/elements';
 
 const displayName = 'Preloader';
 
-function Preloader() {
+const propTypes = {
+  defaultPreloaderSize: PropTypes.number,
+};
+
+const defaultProps = {
+  defaultPreloaderSize: 150,
+};
+
+function Preloader({ defaultPreloaderSize }) {
   return (
-    <BlubWrapper>
-      <Blub1 />
-      <Blub2 />
-      <Blub3 />
+    <BlubWrapper size={defaultPreloaderSize}>
+      <div />
+      <div />
+      <div />
     </BlubWrapper>
   );
 }
 
 Preloader.displayName = displayName;
+Preloader.propTypes = propTypes;
+Preloader.defaultProps = defaultProps;
 
 export default Preloader;

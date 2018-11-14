@@ -39,7 +39,7 @@ function AddTheme({
   return (
     <AddThemeCard onClick={handleShowInput}>
       <form onSubmit={handleSubmit}>
-        <Loader isLoading={isLoading} startFallback={500}>
+        <Loader isLoading={isLoading} delay={500} defaultPreloaderSize={50}>
           {isShowInput ? (
             <AddThemeInput
               placeholder="Theme name"

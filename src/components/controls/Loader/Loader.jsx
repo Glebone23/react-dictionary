@@ -9,17 +9,19 @@ const propTypes = {
   fallback: PropTypes.node,
   children: PropTypes.node.isRequired,
   startFallback: PropTypes.bool,
+  defaultPreloaderSize: PropTypes.number,
 };
 
 const defaultProps = {
   startFallback: false,
   fallback: undefined,
+  defaultPreloaderSize: 150,
 };
 
 function Loader({
-  isLoading, fallback, startFallback, children,
+  isLoading, fallback, defaultPreloaderSize, startFallback, children,
 }) {
-  if (isLoading && startFallback) return fallback || <Preloader />;
+  if (isLoading && startFallback) return fallback || <Preloader defaultPreloaderSize={defaultPreloaderSize} />;
   if (isLoading && !startFallback) return <React.Fragment />;
   return children;
 }

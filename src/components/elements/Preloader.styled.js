@@ -1,8 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import config from 'config';
 
-const color = config.colors.accentColor;
-const size = 150;
+const color = config.colors.borderGray;
 
 const blub = keyframes`
   0% {
@@ -23,44 +22,39 @@ const blub = keyframes`
 `;
 
 const BlubWrapper = styled.div`
-  margin: 80px auto;
+  margin: auto;
   position: relative;
-  width: ${size}px;
-  height: ${size}px;
+  width: ${props => props.size}px;
+  height: ${props => props.size}px;
+  div {
+    background: ${color};
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+    transform: scale(0.8);
+    animation: ${blub} 1.5s ease-in-out infinite;
+    &:nth-child(1) {
+      width: ${props => props.size}px;
+      height: ${props => props.size}px;
+    }
+    &:nth-child(2) {
+      top: ${props => props.size * 0.1}px;
+      left: ${props => props.size * 0.1}px;
+      width: ${props => props.size * 0.8}px;
+      height: ${props => props.size * 0.8}px;
+      filter: brightness(0.9);
+      animation-delay: 0.2s;
+    }
+    &:nth-child(3) {
+      top: ${props => props.size * 0.2}px;
+      left: ${props => props.size * 0.2}px;
+      width: ${props => props.size * 0.6}px;
+      height: ${props => props.size * 0.6}px;
+      filter: brightness(0.8);
+      animation-delay: 0.4s;
+    }
+  }
 `;
 
-const Blub = styled.div`
-  background: ${color};
-  position: absolute;
-  border-radius: 50%;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
-  opacity: 0.5;
-  transform: scale(.8);
-  animation: ${blub} 1.5s ease-in-out infinite;
-`;
-
-const Blub1 = styled(Blub)`
-  width: ${size}px;
-  height: ${size}px;
-`;
-
-const Blub2 = styled(Blub)`
-  top: ${size * 0.1}px;
-  left: ${size * 0.1}px;
-  width: ${size * 0.8}px;
-  height: ${size * 0.8}px;
-  filter: brightness(0.9);
-  animation-delay: 0.2s;
-`;
-const Blub3 = styled(Blub)`
-  top: ${size * 0.2}px;
-  left: ${size * 0.2}px;
-  width: ${size * 0.6}px;
-  height: ${size * 0.6}px;
-  filter: brightness(0.8);
-  animation-delay: 0.4s;
-`;
-
-export {
-  BlubWrapper, Blub1, Blub2, Blub3,
-};
+export default BlubWrapper;

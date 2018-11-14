@@ -28,12 +28,14 @@ const enhance = compose(
   withHandlers({
     handleSubmit: props => (event) => {
       const {
-        inputValue, dispatchAddTheme, handleInputBlur, setLoading,
+        inputValue, dispatchAddTheme, handleInputBlur, isLoading, setLoading,
       } = props;
       event.preventDefault();
-      if (!isEmpty(inputValue)) {
+      if (!isEmpty(inputValue) && !isLoading) {
         setLoading(true);
-        dispatchAddTheme(inputValue).then(() => setLoading(false));
+        dispatchAddTheme(inputValue)
+          .then(() => setLoading(false))
+          .catch(() => setLoading(false));
         handleInputBlur(props);
       }
     },
