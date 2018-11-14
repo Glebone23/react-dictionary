@@ -39,7 +39,7 @@ export const enhance = compose(
   }),
   mapProps(props => ({
     ...props,
-    themes: props.themes.toJS(),
+    themes: props.themes.toJS().reverse(),
   })),
 );
 
