@@ -1,12 +1,13 @@
-import styled from 'styled-components';
-import config from 'config';
+import styled from "styled-components";
+import config from "config";
 
 const {
   screens: { mobile },
-  colors: { bgGray, borderGray, themeFont },
+  colors: { bgGray, borderGray, themeFont }
 } = config;
 const ThemeCard = styled.div`
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   width: 200px;
@@ -26,6 +27,24 @@ const ThemeCard = styled.div`
   i {
     font-size: 33px;
   }
+  div {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 37px;
+    border-radius: 50%;
+    transition: all 0.25s ease-in-out;
+    i {
+      font-size: 22px;
+    }
+    &:hover {
+      transform: scale(1.1);
+      background: #e9e9e9;
+    }
+  }
   &:hover {
     box-shadow: 0 0 15px 0 #aaa;
   }
@@ -36,6 +55,16 @@ const ThemeCard = styled.div`
     height: auto;
     i {
       font-size: 28px;
+    }
+    div {
+      top: 50%;
+      margin-top: -17.5px;
+      right: 5px;
+      i {
+        &:before {
+          content: "\f142" !important;
+        }
+      }
     }
   }
 `;

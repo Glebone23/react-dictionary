@@ -15,7 +15,14 @@ const defaultProps = {
 };
 
 function Theme({ children, onClick }) {
-  return <ThemeCard onClick={onClick}>{children}</ThemeCard>;
+  return (
+    <ThemeCard onClick={onClick}>
+      {children}
+      <div className="setting">
+        <i className="fas fa-ellipsis-h" />
+      </div>
+    </ThemeCard>
+  );
 }
 
 Theme.displayName = displayName;
