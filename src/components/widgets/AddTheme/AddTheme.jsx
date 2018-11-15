@@ -12,9 +12,6 @@ const propTypes = {
   handleInputBlur: PropTypes.func,
   isShowInput: PropTypes.bool,
   inputValue: PropTypes.string,
-  inputRef: PropTypes.shape({
-    current: PropTypes.instanceOf(Element),
-  }).isRequired,
   isLoading: PropTypes.bool,
 };
 
@@ -32,10 +29,8 @@ function AddTheme({
   handleInputChange,
   handleSubmit,
   inputValue,
-  inputRef,
   isLoading,
 }) {
-  if (isShowInput) setTimeout(() => inputRef.current.focus());
   return (
     <AddThemeCard onClick={handleShowInput}>
       <form onSubmit={handleSubmit}>
@@ -43,10 +38,11 @@ function AddTheme({
           {isShowInput ? (
             <AddThemeInput
               placeholder="Theme name"
+              name="themeName"
               value={inputValue}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
-              ref={inputRef}
+              autoFocus
             />
           ) : (
             <i className="far fa-plus-square" />

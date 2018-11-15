@@ -1,6 +1,5 @@
-import { createRef } from 'react';
 import {
-  compose, setDisplayName, withState, withHandlers, withProps,
+  compose, setDisplayName, withState, withHandlers,
 } from 'recompose';
 import { isEmpty } from 'helpers';
 import AddTheme from './AddTheme';
@@ -10,16 +9,12 @@ const enhance = compose(
   withState('isShowInput', 'setShowInput', false),
   withState('inputValue', 'setInputValue', ''),
   withState('isLoading', 'setLoading', false),
-  withProps(() => ({
-    inputRef: createRef(),
-  })),
   withHandlers({
     handleShowInput: ({ setShowInput }) => () => {
       setShowInput(true);
     },
-    handleInputBlur: ({ setShowInput, setInputValue }) => () => {
+    handleInputBlur: ({ setShowInput }) => () => {
       setShowInput(false);
-      setInputValue('');
     },
     handleInputChange: ({ setInputValue }) => (event) => {
       setInputValue(event.target.value);
