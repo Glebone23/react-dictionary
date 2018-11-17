@@ -3,7 +3,7 @@ import { combineReducers } from 'redux-immutable';
 import { Map } from 'immutable';
 import promiseMiddleware from 'redux-promise-middleware';
 import {
-  userInfo, initialUserInfoState, themes, initialThemesState,
+  userInfo, initialUserInfoState, themes, initialThemesState, themeInfo, initialThemeInfoState,
 } from 'reducers';
 import thunkMiddleware from 'redux-thunk';
 
@@ -15,12 +15,14 @@ const enhancer = composeEnhancers(applyMiddleware(thunkMiddleware, promiseMiddle
 export const initialStoreState = Map({
   userInfo: initialUserInfoState,
   themes: initialThemesState,
+  themeInfo: initialThemeInfoState,
 });
 
 const store = createStore(
   combineReducers({
     userInfo,
     themes,
+    themeInfo,
   }),
   initialStoreState,
   enhancer,
