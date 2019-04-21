@@ -33,7 +33,8 @@ export const enhance = compose(
       dispatchFetchThemes()
         .then(() => setLoading(false))
         .catch((res) => {
-          if (handleError(res.response).logout) dispatchLogoutUser();
+          const result = handleError(res.response);
+          if (result && result.logout) dispatchLogoutUser();
         });
     },
   }),

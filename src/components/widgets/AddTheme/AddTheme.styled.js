@@ -4,14 +4,14 @@ import ThemeCard from '../Theme/Theme.styled';
 
 const { bgGray, borderGray, themeFont } = config.colors;
 const AddThemeCard = styled(ThemeCard)`
-  i {
+  svg {
     transition: all 0.25s ease-in-out;
   }
   &:hover {
     background: ${bgGray};
     color: ${themeFont};
     border-color: ${borderGray};
-    i {
+    svg {
       transform: scale(1.15);
     }
   }

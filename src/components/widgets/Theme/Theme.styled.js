@@ -24,9 +24,10 @@ const ThemeCard = styled.div`
   transition-timing-function: ease-in-out;
   user-select: none;
   text-decoration: none;
-  i {
-    font-size: 40px;
-  }
+  svg {
+      width: 45px;
+      height: 45px;
+    }
   &:hover {
     box-shadow: 0 0 15px 0 #aaa;
   }
@@ -35,8 +36,9 @@ const ThemeCard = styled.div`
     width: 100%;
     min-height: 14vh;
     height: auto;
-    i {
-      font-size: 28px;
+    svg {
+      width: 28px;
+      height: 28px;
     }
   }
 `;

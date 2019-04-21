@@ -30,6 +30,7 @@ function ThemesList({ themes, dispatchAddTheme, isLoading }) {
     </Loader>
   );
 }
+/* eslint-enable no-underscore-dangle */
 
 ThemesList.displayName = displayName;
 ThemesList.propTypes = propTypes;

@@ -6,6 +6,7 @@ import Menu from '../components/widgets/Menu';
 import {
   Login, Signup, Home, ThemePage,
 } from '../components/pages';
+import config from '../config';
 
 const displayName = 'Dictionary';
 
@@ -20,16 +21,17 @@ const defaultProps = {
 };
 
 function App({ isLoggedIn, dispatchLogoutUser }) {
+  const { home, login, signup } = config.pages;
   return (
     <React.Fragment>
       <Router basename="/react-dictionary">
         <div>
           <Menu isLoggedIn={isLoggedIn} logout={dispatchLogoutUser} />
           <Switch>
-            <ProtectedRoute exact path="/" isLoggedIn={isLoggedIn} component={Home} />
+            <ProtectedRoute exact path={home.pathname} isLoggedIn={isLoggedIn} component={Home} />
             <ProtectedRoute exact path="/theme/:themeId" isLoggedIn={isLoggedIn} component={ThemePage} />
-            <ProtectedRoute exact path="/login" isLoggedIn={isLoggedIn} isPrivate={false} component={Login} />
-            <ProtectedRoute exact path="/signup" isLoggedIn={isLoggedIn} isPrivate={false} component={Signup} />
+            <ProtectedRoute exact path={login.pathname} isLoggedIn={isLoggedIn} isPrivate={false} component={Login} />
+            <ProtectedRoute exact path={signup.pathname} isLoggedIn={isLoggedIn} isPrivate={false} component={Signup} />
           </Switch>
         </div>
       </Router>

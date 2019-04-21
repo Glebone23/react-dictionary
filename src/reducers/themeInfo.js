@@ -1,9 +1,9 @@
-import { fromJS, Map } from 'immutable';
+import { fromJS, List, Map } from 'immutable';
 import { handleActions } from 'redux-actions';
 import { FULFILLED } from 'redux-promise-middleware';
 import { fetchCurrentTheme } from '../actions';
 
-export const initialThemeInfoState = Map({ });
+export const initialThemeInfoState = Map({ words: List([]) });
 
 const themeInfo = handleActions(
   {
