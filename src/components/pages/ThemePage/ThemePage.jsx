@@ -1,21 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Headline } from '../../elements';
+import { WordsGrid } from '../../widgets';
 
 const displayName = 'ThemePage';
 
 const propTypes = {
-  themeInfo: PropTypes.shape({}).isRequired,
+  words: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-function ThemePage({ themeInfo }) {
-  const title = themeInfo.get('title');
-  return (
-    <Headline>{title}</Headline>
-  );
+const defaultProps = {
+  words: [],
+};
+
+function ThemePage({ words }) {
+  return words.map((word, key) => <WordsGrid text={word.word} key={key} />);
 }
 
 ThemePage.propTypes = propTypes;
+ThemePage.defaultProps = defaultProps;
 ThemePage.displayName = displayName;
 
 export default ThemePage;

@@ -7,7 +7,8 @@ const {
 } = config;
 const Headline = styled.h1`
   text-align: center;
-  margin-bottom: 0;
+  margin-top: 15px;
+  margin-bottom: 3px;
   color: ${mainDarkFontColor};
   @media (max-width: ${mobile}px) {
     text-align: left;
@@ -17,7 +18,8 @@ const Headline = styled.h1`
 
 const SubHeadline = styled.h2`
   text-align: center;
-  margin-top: 0;
+  margin-top: 3px;
+  margin-bottom: 3px;
   color: #777;
   @media (max-width: ${mobile}px) {
     text-align: left;

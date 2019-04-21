@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getUserInfo } from '../selectors';
 import App from './App';
-import logoutUser from '../actions/logoutUser';
+import { logoutUser } from '../actions';
 
 export const enhance = compose(
   setDisplayName('DictionaryContainer'),

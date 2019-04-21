@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AddIcon from '@material-ui/icons/AddBoxOutlined';
 import { Loader } from '../../controls';
 import { AddThemeInput, AddThemeCard } from './AddTheme.styled';
 
@@ -45,7 +46,7 @@ function AddTheme({
               autoFocus
             />
           ) : (
-            <i className="far fa-plus-square" />
+            <AddIcon />
           )}
         </Loader>
       </form>

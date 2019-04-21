@@ -18,6 +18,20 @@ const config = {
     409: 'An account for the specified email address already exists. Try another email address.',
     401: 'Incorrect email or password',
   },
+  pages: {
+    home: {
+      title: 'Home',
+      pathname: '/',
+    },
+    login: {
+      title: 'Login',
+      pathname: '/login',
+    },
+    signup: {
+      title: 'Sign Up',
+      pathname: '/signup',
+    },
+  },
 };
 
 export default config;

@@ -3,9 +3,11 @@ import { compose, setDisplayName, withHandlers } from 'recompose';
 const withError = compose(
   setDisplayName('CheckAuthentication'),
   withHandlers({
-    handleError: () => ({ status }) => {
-      if (status && status === 401) return { logout: true };
-      return null;
+    handleError: () => (result) => {
+      if (result.status && result.status === 401) {
+        return { logout: true };
+      }
+      return false;
     },
   }),
 );

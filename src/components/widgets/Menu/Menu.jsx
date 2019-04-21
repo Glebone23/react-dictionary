@@ -1,23 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-import { compose } from 'recompose';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
-import MenuWrapper from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Slide from '@material-ui/core/Slide';
+import HomeIcon from '@material-ui/icons/Home';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import LoginIcon from '@material-ui/icons/ExitToApp';
+import LogoutIcon from '@material-ui/icons/PowerSettingsNew';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import {
+  Root, Bar, MenuButton, Title, MenuWrapper,
+} from './Menu.styled';
 import config from '../../../config';
 
 const displayName = 'Menu';
 
 const propTypes = {
-  classes: PropTypes.shape({}).isRequired,
   isOpen: PropTypes.bool,
   handleToggle: PropTypes.func,
   handleClose: PropTypes.func,
@@ -25,99 +26,104 @@ const propTypes = {
   isLoggedIn: PropTypes.bool,
   logout: PropTypes.func,
   location: PropTypes.shape({}).isRequired,
+  pageTitle: PropTypes.string,
 };
 
 const defaultProps = {
   isOpen: false,
   handleToggle: () => {},
   handleClose: () => {},
+  logout: () => {},
   btnRef: {},
   isLoggedIn: false,
-  logout: () => {},
-};
-
-const styles = {
-  root: {
-    flexGrow: 1,
-    display: 'flex',
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-  bar: {
-    backgroundColor: config.colors.accentColor,
-  },
-  menuWrapper: {
-    background: '#00000040',
-    '& div[role="document"]': {
-      top: '0 !important',
-      left: '0 !important',
-      width: 240,
-      borderRadius: 0,
-    },
-  },
+  pageTitle: '',
 };
 
 function Menu({
-  classes, isOpen, handleToggle, handleClose, btnRef, isLoggedIn, logout, location: { pathname },
+  isOpen, handleToggle, handleClose, btnRef, isLoggedIn, logout, location: { pathname }, pageTitle,
 }) {
+  const { home, login } = config.pages;
+
   return (
-    <div className={classes.root}>
-      <AppBar className={classes.bar} position="static">
+    <Root>
+      <Bar>
         <Toolbar>
-          <Button
+          <MenuButton
             buttonRef={btnRef}
             aria-owns={isOpen ? 'menu-list-grow' : undefined}
             aria-haspopup="true"
             onClick={handleToggle}
-            className={classes.menuButton}
-            color="inherit"
             aria-label="Menu"
           >
             <MenuIcon />
-          </Button>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            {config.name}
-          </Typography>
+          </MenuButton>
+          <Title variant="h6">{pageTitle}</Title>
         </Toolbar>
         <MenuWrapper
           open={isOpen}
-          onClose={handleClose}
-          TransitionComponent={Slide}
-          TransitionProps={{ direction: 'right' }}
-          className={classes.menuWrapper}
+          onClose={handleToggle}
+          onOpen={handleToggle}
         >
-          <MenuItem selected={pathname === '/'} component={Link} to="/" onClick={handleClose}>Home</MenuItem>
-          <MenuItem
-            selected={pathname === '/profile'}
-            component={Link}
-            to="/profile"
-            onClick={handleClose}
+          <div
+            tabIndex={0}
+            role="button"
+            onClick={handleToggle}
+            onKeyDown={handleToggle}
           >
-            Profile
-          </MenuItem>
-          <Divider />
-          {
-            isLoggedIn
-              ? <MenuItem onClick={(e) => { logout(); handleClose(e); }}>Logout</MenuItem>
-              : (
-                <MenuItem
-                  selected={pathname === '/login'}
-                  component={Link}
-                  to="/login"
-                  onClick={handleClose}
-                >
-                Login
-                </MenuItem>
-              )
-          }
+            <ListItem
+              button
+              selected={pathname === home.pathname}
+              component={Link}
+              to={home.pathname}
+              onClick={handleClose}
+            >
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText primary={home.title} />
+            </ListItem>
+            <ListItem
+              button
+              selected={pathname === '/profile'}
+              component={Link}
+              to="/profile"
+              onClick={handleClose}
+            >
+              <ListItemIcon>
+                <AccountCircleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Profile" />
+            </ListItem>
+            <Divider />
+            {
+              isLoggedIn
+                ? (
+                  <ListItem button onClick={(e) => { logout(); handleClose(e); }}>
+                    <ListItemIcon>
+                      <LogoutIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Logout" />
+                  </ListItem>
+                )
+                : (
+                  <ListItem
+                    button
+                    selected={pathname === login.pathname}
+                    component={Link}
+                    to={login.pathname}
+                    onClick={handleClose}
+                  >
+                    <ListItemIcon>
+                      <LoginIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={login.title} />
+                  </ListItem>
+                )
+            }
+          </div>
         </MenuWrapper>
-      </AppBar>
-    </div>
+      </Bar>
+    </Root>
   );
 }
 
@@ -125,7 +131,4 @@ Menu.propTypes = propTypes;
 Menu.defaultProps = defaultProps;
 Menu.displayName = displayName;
 
-export default compose(
-  withRouter,
-  withStyles(styles),
-)(Menu);
+export default withRouter(Menu);
