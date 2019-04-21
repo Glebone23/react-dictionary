@@ -1,6 +1,6 @@
 import React from 'react';
-import { ThemesList } from 'components/widgets';
-import { Headline, SubHeadline } from 'components/elements';
+import { ThemesList } from '../../widgets';
+import { Headline, SubHeadline } from '../../elements';
 
 const displayName = 'Home';
 

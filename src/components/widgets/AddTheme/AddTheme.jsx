@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Loader } from 'components/controls';
+import { Loader } from '../../controls';
 import { AddThemeInput, AddThemeCard } from './AddTheme.styled';
 
 const displayName = 'AddTheme';

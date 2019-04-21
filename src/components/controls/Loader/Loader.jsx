@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Preloader } from 'components/controls';
+import { Preloader } from '..';
 
 const displayName = 'Loader';
 

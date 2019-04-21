@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { UserModel } from 'models';
+import { UserModel } from '../models';
 
 const payloadCreator = body => UserModel.login(body);
 

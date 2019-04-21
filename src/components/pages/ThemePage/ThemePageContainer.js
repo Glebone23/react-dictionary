@@ -3,8 +3,8 @@ import {
 } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getThemeInfo } from 'selectors';
-import { fetchCurrentTheme } from 'actions';
+import { getThemeInfo } from '../../../selectors';
+import { fetchCurrentTheme } from '../../../actions';
 import ThemePage from './ThemePage';
 
 const enhance = compose(

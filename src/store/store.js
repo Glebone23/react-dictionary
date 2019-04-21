@@ -2,10 +2,10 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { combineReducers } from 'redux-immutable';
 import { Map } from 'immutable';
 import promiseMiddleware from 'redux-promise-middleware';
+import thunkMiddleware from 'redux-thunk';
 import {
   userInfo, initialUserInfoState, themes, initialThemesState, themeInfo, initialThemeInfoState,
-} from 'reducers';
-import thunkMiddleware from 'redux-thunk';
+} from '../reducers';
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

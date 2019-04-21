@@ -1,7 +1,7 @@
 import { Map, fromJS } from 'immutable';
 import { handleActions } from 'redux-actions';
 import { FULFILLED } from 'redux-promise-middleware';
-import { loginUser, logoutUser } from 'actions';
+import { loginUser, logoutUser } from '../actions';
 
 const jwtName = 'token';
 const jwt = localStorage.getItem(jwtName);

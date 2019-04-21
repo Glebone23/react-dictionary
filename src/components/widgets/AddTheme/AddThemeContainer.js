@@ -1,7 +1,7 @@
 import {
   compose, setDisplayName, withState, withHandlers,
 } from 'recompose';
-import { isEmpty } from 'helpers';
+import { isEmpty } from '../../../helpers';
 import AddTheme from './AddTheme';
 
 const enhance = compose(

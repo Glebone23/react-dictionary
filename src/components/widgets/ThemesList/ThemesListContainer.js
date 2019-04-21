@@ -3,9 +3,9 @@ import {
 } from 'recompose';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { getThemes, getUserInfo } from 'selectors';
-import { fetchThemes, logoutUser, addTheme } from 'actions';
-import withError from 'components/HOCs';
+import { getThemes, getUserInfo } from '../../../selectors';
+import { fetchThemes, logoutUser, addTheme } from '../../../actions';
+import withError from '../../HOCs';
 import ThemesList from './ThemesList';
 
 export const enhance = compose(
