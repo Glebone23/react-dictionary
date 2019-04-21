@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import config from 'config';
+import config from '../../../config';
 
 const {
   screens: { mobile },
@@ -23,8 +23,9 @@ const ThemeCard = styled.div`
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   user-select: none;
+  text-decoration: none;
   i {
-    font-size: 33px;
+    font-size: 40px;
   }
   &:hover {
     box-shadow: 0 0 15px 0 #aaa;

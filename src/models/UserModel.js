@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from 'config';
+import config from '../config';
 
 const axiosConfig = {
   headers: { 'Content-type': 'application/json; charset=UTF-8' },

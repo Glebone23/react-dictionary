@@ -2,8 +2,10 @@ import {
   compose, setDisplayName, withProps,
 } from 'recompose';
 import { connect } from 'react-redux';
-import { getUserInfo } from 'selectors';
+import { bindActionCreators } from 'redux';
+import { getUserInfo } from '../selectors';
 import App from './App';
+import logoutUser from '../actions/logoutUser';
 
 export const enhance = compose(
   setDisplayName('DictionaryContainer'),
@@ -11,6 +13,12 @@ export const enhance = compose(
     state => ({
       userInfo: getUserInfo(state),
     }),
+    dispatch => bindActionCreators(
+      {
+        dispatchLogoutUser: logoutUser,
+      },
+      dispatch,
+    ),
   ),
   withProps(({ userInfo }) => ({ isLoggedIn: userInfo.get('loggedIn') })),
 );

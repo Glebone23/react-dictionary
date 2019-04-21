@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import config from 'config';
+import config from '../../config';
 
 const color = config.colors.borderGray;
 

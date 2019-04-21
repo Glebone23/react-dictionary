@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InputField, LabelField } from 'components/elements';
+import { InputField, LabelField } from '../elements';
 
 const displayName = 'LabelInput';
 

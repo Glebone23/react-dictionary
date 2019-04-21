@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import config from 'config';
+import { Link } from 'react-router-dom';
+import config from '../../../config';
 import {
   LabelInput, Button, Alert, Info,
-} from 'components/controls';
-import logo from 'logo.svg';
+} from '../../controls';
 import {
   AuthPageWrapper, Logo, AuthFormWrapper, AuthHeadline,
-} from 'components/elements';
-import { Link } from 'react-router-dom';
+} from '../../elements';
 
 const displayName = 'Login';
 
@@ -35,7 +34,7 @@ function Login({
   const showError = error !== '';
   return (
     <AuthPageWrapper>
-      <Logo src={logo} alt="logo" />
+      <Logo src={`${process.env.PUBLIC_URL}/logo.svg`} alt="logo" />
       <AuthHeadline>{`Login to ${config.name}`}</AuthHeadline>
       <Alert isShown={showError}>{error}</Alert>
       <AuthFormWrapper>

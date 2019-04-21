@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BlubWrapper } from 'components/elements';
+import { BlubWrapper } from '../elements';
 
 const displayName = 'Preloader';
 

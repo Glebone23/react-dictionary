@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AlertWrapper } from 'components/elements';
+import { AlertWrapper } from '../elements';
 
 const displayName = 'Alert';
 

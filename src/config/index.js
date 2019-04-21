@@ -1,6 +1,7 @@
 const config = {
   name: 'React Dictionary',
-  serverURL: 'https://react-dictionary.herokuapp.com',
+  // serverURL: 'https://react-dictionary.herokuapp.com',
+  serverURL: 'http://localhost:8080',
   screens: {
     mobile: 443,
   },

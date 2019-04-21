@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import config from 'config';
+import config from '../../config';
 import { Headline } from './Headlines.styled';
 
 const { bgGray } = config.colors;

@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
-import { getUserInfo } from 'selectors';
-import { ThemesModel } from 'models';
+import { getUserInfo } from '../selectors';
+import { ThemesModel } from '../models';
 
 const payloadCreator = (token, id) => ThemesModel.getById(token, id);
 

@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import config from 'config';
-import logo from 'logo.svg';
+import { Link } from 'react-router-dom';
+import config from '../../../config';
 import {
   AuthPageWrapper, Logo, AuthFormWrapper, AuthHeadline,
-} from 'components/elements';
+} from '../../elements';
 import {
   LabelInput, Button, Alert, Info,
-} from 'components/controls';
-import { Link } from 'react-router-dom';
+} from '../../controls';
 
 const displayName = 'Signup';
 
@@ -51,7 +50,7 @@ function Signup({
   const showError = error !== '';
   return (
     <AuthPageWrapper>
-      <Logo src={logo} alt="logo" />
+      <Logo src={`${process.env.PUBLIC_URL}/logo.svg`} alt="logo" />
       <AuthHeadline>{`Join ${config.name}`}</AuthHeadline>
       <Alert isShown={showError}>{error}</Alert>
       <AuthFormWrapper>

@@ -3,10 +3,10 @@ import {
 } from 'recompose';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { loginUser } from 'actions';
-import { getUserInfo } from 'selectors';
-import { validateEmail, validatePassword } from 'helpers';
-import config from 'config';
+import { loginUser } from '../../../actions';
+import { getUserInfo } from '../../../selectors';
+import { validateEmail, validatePassword } from '../../../helpers';
+import config from '../../../config';
 import Login from './Login';
 
 export const enhance = compose(

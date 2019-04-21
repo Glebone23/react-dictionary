@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Headline } from 'components/elements';
+import { Headline } from '../../elements';
 
 const displayName = 'ThemePage';
 
 const propTypes = {
-  themeInfo: PropTypes.shape({
-    title: PropTypes.string,
-  }).isRequired,
+  themeInfo: PropTypes.shape({}).isRequired,
 };
 
-function ThemePage({ themeInfo: { title } }) {
+function ThemePage({ themeInfo }) {
+  const title = themeInfo.get('title');
   return (
     <Headline>{title}</Headline>
   );

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import config from 'config';
+import config from '../../../config';
 import ThemeCard from '../Theme/Theme.styled';
 
 const { bgGray, borderGray, themeFont } = config.colors;
@@ -12,7 +12,7 @@ const AddThemeCard = styled(ThemeCard)`
     color: ${themeFont};
     border-color: ${borderGray};
     i {
-      transform: scale(1.25);
+      transform: scale(1.15);
     }
   }
 `;

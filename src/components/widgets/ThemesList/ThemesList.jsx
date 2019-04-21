@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Loader, Preloader } from 'components/controls';
-import { Theme, AddTheme } from 'components/widgets';
+import { Loader, Preloader } from '../../controls';
+import { Theme, AddTheme } from '..';
 import ThemesWrapper from './ThemesList.styled';
 
 const displayName = 'ThemeList';
@@ -24,7 +24,7 @@ function ThemesList({ themes, dispatchAddTheme, isLoading }) {
       <ThemesWrapper>
         <AddTheme dispatchAddTheme={dispatchAddTheme} />
         {themes.map(theme => (
-          <Theme key={theme._id}>{theme.title}</Theme>
+          <Theme key={theme._id} id={theme._id} isLink>{theme.title}</Theme>
         ))}
       </ThemesWrapper>
     </Loader>

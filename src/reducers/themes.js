@@ -1,7 +1,7 @@
 import { List, fromJS, Map } from 'immutable';
 import { handleActions } from 'redux-actions';
 import { FULFILLED } from 'redux-promise-middleware';
-import { fetchThemes, addTheme } from 'actions';
+import { fetchThemes, addTheme } from '../actions';
 
 export const initialThemesState = List([]);
 

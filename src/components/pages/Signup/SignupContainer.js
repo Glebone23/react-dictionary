@@ -1,13 +1,13 @@
 import {
   compose, setDisplayName, withHandlers, withState,
 } from 'recompose';
-import { UserModel } from 'models';
-import { validateEmail, validatePassword, isEmpty } from 'helpers';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getUserInfo } from 'selectors';
-import { loginUser } from 'actions';
-import config from 'config';
+import { UserModel } from '../../../models';
+import { validateEmail, validatePassword, isEmpty } from '../../../helpers';
+import { getUserInfo } from '../../../selectors';
+import { loginUser } from '../../../actions';
+import config from '../../../config';
 import Signup from './Signup';
 
 export const enhance = compose(
