@@ -34,7 +34,12 @@ export const enhance = compose(
         .then(() => setLoading(false))
         .catch((res) => {
           const result = handleError(res.response);
-          if (result && result.logout) dispatchLogoutUser();
+
+          if (result && result.logout) {
+            dispatchLogoutUser();
+          }
+
+          setLoading(false);
         });
     },
   }),

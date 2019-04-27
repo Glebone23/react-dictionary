@@ -3,6 +3,7 @@ import {
 } from 'recompose';
 import { isEmpty } from '../../../helpers';
 import AddTheme from './AddTheme';
+import withError from '../../HOCs';
 
 const enhance = compose(
   setDisplayName('AddThemeContainer'),
@@ -23,18 +24,21 @@ const enhance = compose(
   withHandlers({
     handleSubmit: props => (event) => {
       const {
-        inputValue, dispatchAddTheme, handleInputBlur, isLoading, setLoading,
+        inputValue, dispatchAddTheme, handleInputBlur, isLoading, setLoading, handleError,
       } = props;
       event.preventDefault();
       if (!isEmpty(inputValue) && !isLoading) {
         setLoading(true);
         dispatchAddTheme(inputValue)
           .then(() => setLoading(false))
-          .catch(() => setLoading(false));
+          .catch((res) => {
+            handleError(res.response);
+            setLoading(false);
+          });
         handleInputBlur(props);
       }
     },
   }),
 );
 
-export default enhance(AddTheme);
+export default withError(enhance(AddTheme));

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Loader, Preloader } from '../../controls';
 import { Theme, AddTheme } from '..';
 import ThemesWrapper from './ThemesList.styled';
+import { Loader, Preloader } from '../../controls';
 
 const displayName = 'ThemeList';
 
@@ -17,8 +17,8 @@ const defaultProps = {
   isLoading: true,
 };
 
-/* eslint-disable no-underscore-dangle */
 function ThemesList({ themes, dispatchAddTheme, isLoading }) {
+  /* eslint-disable no-underscore-dangle */
   return (
     <Loader isLoading={isLoading} delay={500} fallback={<Preloader />}>
       <ThemesWrapper>
